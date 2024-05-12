@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #7463df, #15c7df, #07f097, #0da73b);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: linear-gradient(to bottom right, #0da73b, #07f097, #15c7df, #7463df);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <h2>Edit Form</h2>
+        <form action="{% url 'edit' product.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="form-group">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" class="form-control" required value="{{product.jobTitle}}">
+        </div>
+        <div class="form-group">
+            <label for="jobrole">Job Role:</label>
+            <input type="text" id="jobrole" name="jobrole" class="form-control" required value="{{product.jobrole}}">
+        </div>
+        <div class="form-group">
+            <label for="jobLocation">Job Location:</label>
+            <input type="text" id="jobLocation" name="jobLocation" class="form-control" required value="{{product.jobLocation}}">
+        </div>
+        <div class="form-group">
+            <label for="salaryPackage">Salary Package:</label>
+            <input type="text" id="salaryPackage" name="salaryPackage" class="form-control" required value="{{product.salaryPackage}}">
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">Job Description:</label>
+            <textarea id="jobDescription" name="jobDescription" class="form-control" rows="5" required value="{{product.jobDescription}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">Experience Requirements:</label>
+            <textarea id="jobDescription" name="experiance" class="form-control" rows="5" required value="{{product.experiance}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">Education Requirements</label>
+            <textarea id="jobDescription" name="education" class="form-control" rows="5" required value="{{product.education}}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">To Apply:</label>
+            <textarea id="jobDescription" name="url" class="form-control" rows="3" required value="{{product.url}}" ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="jobImage">Upload Image:</label>
+            <input type="file" id="jobImage" name="jobImage" class="form-control-file" value="{{product.jobImage}}">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <input type="reset" value="Reset" class="btn btn-secondary">
+        </div>
+        </form>
+    </div>
+    
+</body>
+
+</html>
